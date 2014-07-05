@@ -19,6 +19,10 @@ void                                    WordSorter::run()
             downloadWikiPage(s.substr(4, s.length() - 3));
         if (s.find("print") == 0)
             printNode(s.substr(5, s.length() - 4));
+        if (s.find("sentence") == 0)
+            printSentence(s.substr(8, s.length() - 7));
+        if (s.find("fullsentence") == 0)
+            printSentence(s.substr(12, s.length() - 11), -1);
         else if (s == "stats")
             printStats();
         else if (s == "list")
@@ -84,7 +88,7 @@ void                                    WordSorter::printStats()
     std::string mostUsed;
     for (auto n : _map)
     {
-        if (max < n.second->_occurences)
+        if (n.second && max < n.second->_occurences)
         {
             max = n.second->_occurences;
             mostUsed = n.first;
@@ -110,8 +114,25 @@ void                                    WordSorter::printNode(std::string const 
         _map[s]->printResult(1);
 }
 
+void                                    WordSorter::printSentence(std::string const &node, int length)
+{
+    std::stringstream ss(node);
+    std::string s;
+    
+    ss >> s;
+    for (int i(0) ; i < s.size() ; ++i)
+        s[i] = tolower(s[i]);
+    
+    if (!_map[s])
+        std::cout << "No entry for [" << s << "]" << std::endl;
+    else
+        std::cout << _map[s]->makeSentence(length) << std::endl;
+}
+
+
 void                                    WordSorter::list() const
 {
     for (auto w : _map)
-        std::cout << "[" << w.second->_occurences << "] - " << w.first << std::endl;
+        if (w.second)
+            std::cout << "[" << w.second->_occurences << "] - " << w.first << std::endl;
 }

@@ -14,7 +14,8 @@ public:
 
     void                                    insertNext(Node *next);
     void                                    printResult(int depth);
-    std::string                             makeSentence(int nbWord, std::string s = "");
+    std::string                             makeSentence(int nbWord = 10, std::string s = "");
+    std::string                             makeSentence( std::vector<Node *> &usedWords, int nbWord = 10, std::string s = "");
     
 //private:
     bool                                    _sorted;

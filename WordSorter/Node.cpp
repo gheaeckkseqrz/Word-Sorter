@@ -39,9 +39,15 @@ void                                    Node::printResult(int depth)
 
 std::string                             Node::makeSentence(int nbWord, std::string s)
 {
+    std::vector<Node *> usedWords;
+    return makeSentence(usedWords, nbWord, s);
+}
+
+std::string                             Node::makeSentence(std::vector<Node *> &usedWords, int nbWord, std::string s)
+{
     if (_next.empty())
     {
-        std::cout << _word << " has no successor" << std::endl;
+        std::cout << "\n" << _word << " has no successor" << std::endl;
     }
     
     if (nbWord == 0 || _next.empty())
@@ -53,6 +59,14 @@ std::string                             Node::makeSentence(int nbWord, std::stri
         _sorted = true;
     }
     
-    
-    return _next[0].first->makeSentence(nbWord - 1, s + " [" + _word + "]");
+    usedWords.push_back(this);
+    for (auto it = _next.begin() ; it != _next.end() ; ++it)
+    {
+        if (std::find(usedWords.begin(), usedWords.end(), (*it).first) == usedWords.end())
+        {
+            return (*it).first->makeSentence(usedWords, nbWord - 1, s + " " + _word);
+        }
+    }
+    std::cout << "Can't find anything unused to put after " << _word << std::endl;
+    return s + " " + _word;
 }

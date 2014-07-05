@@ -25,6 +25,7 @@ protected:
     bool                                    downloadWikiPage(std::string const &s);
     void                                    printStats();
     void                                    printNode(std::string const &node);
+    void                                    printSentence(std::string const &node, int length = 10);
     void                                    list() const;
     
 private:
