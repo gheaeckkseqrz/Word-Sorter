@@ -90,7 +90,8 @@ void                                    WordSorter::printStats()
             mostUsed = n.first;
         }
     }
-    std::cout << "Total words : " << _map.size() << std::endl;
+    std::cout << "Recorded words : " << _recordedWords << std::endl;
+    std::cout << "Unique words : " << _map.size() << std::endl;
     std::cout << "Most used word : [" << mostUsed << "] (" << max << " occurences)" << std::endl;
 }
 
