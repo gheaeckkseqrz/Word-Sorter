@@ -15,14 +15,14 @@ void                                    WordSorter::run()
     std::string     s;
     do
     {
-        if (s == "wiki")
-            downloadWikiPage(s);
+        if (s.find("wiki") == 0)
+            downloadWikiPage(s.substr(4, s.length() - 3));
         else if (s == "stats")
             printStats();
         else if (s == "list")
             list();
         std::cout << ">> ";
-    } while (std::cin >> s);
+    } while (std::getline(std::cin, s));
 }
 
 void                                    WordSorter::processInput(std::string const &i)
@@ -58,11 +58,19 @@ void                                    WordSorter::processInput(std::string con
 
 bool                                    WordSorter::downloadWikiPage(std::string const &s)
 {
-    std::string result = getWiki();
-    if (result.empty())
-        return false;
-    std::cout << "Got : [" << result << "]" << std::endl;
-    processInput(result);
+    int nb = std::atoi(s.c_str());
+    nb = (nb >= 1) ? nb : 1;
+    
+    for (int i(0) ; i < nb ; ++i)
+    {
+        if (nb > 1)
+            std::cout << "====================[" << i+1 << "/" << nb << "]====================" << std::endl;
+        std::string result = getWiki();
+        if (result.empty())
+            return false;
+        std::cout << "Got : [" << result << "]" << std::endl;
+        processInput(result);
+    }
     return true;
 }
 
