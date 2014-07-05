@@ -7,12 +7,16 @@
 //
 
 #include <iostream>
+#include <map>
+#include <algorithm>
+#include "WordSorter.h"
 
-int main(int argc, const char * argv[])
+
+int main(int ac, char **av)
 {
-
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+    (void)ac;
+    (void)av;
+    
+    WordSorter ws;
+    ws.run();
 }
-

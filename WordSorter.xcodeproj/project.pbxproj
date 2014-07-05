@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		444DB1BA1967C16D0071C1FA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444DB1B91967C16D0071C1FA /* main.cpp */; };
 		444DB1BC1967C16D0071C1FA /* WordSorter.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 444DB1BB1967C16D0071C1FA /* WordSorter.1 */; };
+		444DB1C51967C1A70071C1FA /* getWiki.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444DB1C21967C1A70071C1FA /* getWiki.cpp */; };
+		444DB1C61967C1A70071C1FA /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444DB1C31967C1A70071C1FA /* Node.cpp */; };
+		444DB1C81967C1D90071C1FA /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 444DB1C71967C1D90071C1FA /* libcurl.dylib */; };
+		444DB1CB1967C7670071C1FA /* WordSorter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444DB1C91967C7670071C1FA /* WordSorter.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +32,12 @@
 		444DB1B61967C16D0071C1FA /* WordSorter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WordSorter; sourceTree = BUILT_PRODUCTS_DIR; };
 		444DB1B91967C16D0071C1FA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		444DB1BB1967C16D0071C1FA /* WordSorter.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = WordSorter.1; sourceTree = "<group>"; };
+		444DB1C21967C1A70071C1FA /* getWiki.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = getWiki.cpp; sourceTree = "<group>"; };
+		444DB1C31967C1A70071C1FA /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		444DB1C41967C1A70071C1FA /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		444DB1C71967C1D90071C1FA /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
+		444DB1C91967C7670071C1FA /* WordSorter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordSorter.cpp; sourceTree = "<group>"; };
+		444DB1CA1967C7670071C1FA /* WordSorter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordSorter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				444DB1C81967C1D90071C1FA /* libcurl.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +55,7 @@
 		444DB1AD1967C16D0071C1FA = {
 			isa = PBXGroup;
 			children = (
+				444DB1C71967C1D90071C1FA /* libcurl.dylib */,
 				444DB1B81967C16D0071C1FA /* WordSorter */,
 				444DB1B71967C16D0071C1FA /* Products */,
 			);
@@ -61,7 +73,12 @@
 			isa = PBXGroup;
 			children = (
 				444DB1B91967C16D0071C1FA /* main.cpp */,
+				444DB1C21967C1A70071C1FA /* getWiki.cpp */,
+				444DB1C31967C1A70071C1FA /* Node.cpp */,
+				444DB1C41967C1A70071C1FA /* Node.h */,
 				444DB1BB1967C16D0071C1FA /* WordSorter.1 */,
+				444DB1C91967C7670071C1FA /* WordSorter.cpp */,
+				444DB1CA1967C7670071C1FA /* WordSorter.h */,
 			);
 			path = WordSorter;
 			sourceTree = "<group>";
@@ -117,6 +134,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				444DB1C61967C1A70071C1FA /* Node.cpp in Sources */,
+				444DB1C51967C1A70071C1FA /* getWiki.cpp in Sources */,
+				444DB1CB1967C7670071C1FA /* WordSorter.cpp in Sources */,
 				444DB1BA1967C16D0071C1FA /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +247,7 @@
 				444DB1C11967C16D0071C1FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
