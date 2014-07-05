@@ -26,12 +26,15 @@ void                                    Node::printResult(int depth)
         _sorted = true;
     }
     
+    std::cout << " ====== Result for [" << _word << "]" << std::endl;
+    
     for (auto n : _next)
     {
-        std::cout << std::setfill('-') << std::setw((depth + 1) * 2) << "> [" << n.second << "] " << n.first->_word << std::endl;
-        n.first->printResult(depth+1);
-        break;
+        std::cout << "[" << n.second << "] - " << n.first->_word << " (" << n.first->_occurences << ")" << std::endl;
     }
+    if (_next.empty())
+        std::cout << "No succesors." << std::endl;
+        
 }
 
 std::string                             Node::makeSentence(int nbWord, std::string s)

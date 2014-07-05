@@ -17,10 +17,14 @@ void                                    WordSorter::run()
     {
         if (s.find("wiki") == 0)
             downloadWikiPage(s.substr(4, s.length() - 3));
+        if (s.find("print") == 0)
+            printNode(s.substr(5, s.length() - 4));
         else if (s == "stats")
             printStats();
         else if (s == "list")
             list();
+        else if (s == "clear")
+            for (int i(0) ; i < 50 ; ++i) std::cout << "\n\n\n\n\n\n\n" << std::endl;
         std::cout << ">> ";
     } while (std::getline(std::cin, s));
 }
@@ -28,7 +32,7 @@ void                                    WordSorter::run()
 void                                    WordSorter::processInput(std::string const &i)
 {
     std::string txt = i;
-    char chars[] = "()-.,?!'«»’\":;";
+    char chars[] = "()-.,?!'«»’\":;[]";
     
     for (unsigned int i = 0; i < strlen(chars); ++i)
         txt.erase (std::remove(txt.begin(), txt.end(), chars[i]), txt.end());
@@ -92,7 +96,17 @@ void                                    WordSorter::printStats()
 
 void                                    WordSorter::printNode(std::string const &node)
 {
-    std::cout << node << std::endl;
+    std::stringstream ss(node);
+    std::string s;
+    
+    ss >> s;
+    for (int i(0) ; i < s.size() ; ++i)
+        s[i] = tolower(s[i]);
+
+    if (!_map[s])
+        std::cout << "No entry for [" << s << "]" << std::endl;
+    else
+        _map[s]->printResult(1);
 }
 
 void                                    WordSorter::list() const
