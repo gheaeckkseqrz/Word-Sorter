@@ -74,7 +74,7 @@ bool                                    WordSorter::downloadWikiPage(std::string
         if (nb > 1)
             std::cout << "====================[" << i+1 << "/" << nb << "]====================" << std::endl;
         std::string result = getWiki();
-        if (result.empty())
+        if (result.empty() || result.length() < 50)
             return false;
         std::cout << "Got : [" << result << "]" << std::endl;
         processInput(result);
