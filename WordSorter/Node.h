@@ -16,12 +16,16 @@ public:
     void                                    printResult(int depth);
     std::string                             makeSentence(int nbWord = 10, std::string s = "");
     std::string                             makeSentence( std::vector<Node *> &usedWords, int nbWord = 10, std::string s = "");
+
+protected:
+    void                                    insertPrevious(Node *previous);
     
-//private:
+public: //private:
     bool                                    _sorted;
     std::string                             _word;
     unsigned int                            _occurences;
     std::vector<std::pair<Node*, int> >     _next;
+    std::vector<std::pair<Node*, int> >     _previous;
 };
 
 struct sortingFunctor
